@@ -107,6 +107,12 @@ Whether to install/enable `fail2ban`. You might not want to use fail2ban if you'
 
 The name of the template file used to generate `fail2ban`'s configuration.
 
+    user_name: ansible
+    user_shell: /bin/bash
+    user_ssh_key: "{{ lookup('file', '../ssh_key') }}"
+
+These are new defaults for the new task that creates a user to be used with `security_ssh_allowed_users` and `security_sudoers_passwordless`. For this new user, we set the desired shell and their SSH key, which must be created previously.
+
 ## Dependencies
 
 None.
